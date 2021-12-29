@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { Card, Button } from "react-bootstrap";
 import axios from "axios";
-export default function Schedule() {
-  const [data, setData] = useState([]);
+
+
+const Schedule = () => {
+  const [result, setResult] = useState([]);
+  const [status, setStatus] = useState("");
+
   const token = localStorage.getItem("token");
 
   useEffect(() => {
@@ -16,34 +21,58 @@ export default function Schedule() {
         }
       )
       .then((result) => {
-        console.log(result.data, "ddddd");
-        console.log(token, "ddddd");
-        // history.push("/schedule");
-        setData(result.data);
+        setResult(result.data);
       })
       .catch((err) => {
         console.log(err, "err");
       });
   }, []);
 
+  const changeStatus = (id) => {
+    axios
+      .put(
+        `http://localhost:5000/appoinments/${id}`,
+
+        { status: status }
+      )
+      .then((result) => {
+        setStatus(result.data)
+        console.log(result.data, "ddddd");
+      })
+      .catch((err) => {
+        console.log(err, "err");
+      });
+  };
+
   return (
-    <div className="schedule">
-      {data &&
-        data.map((element, index) => {
-          <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary">
-                Go somewhere
-              </a>
-            </div>
-          </div>;
+    <div className="seller">
+      
+      {result &&
+        result.map((elem, i) => {
+          return (
+            <>
+                <div class="card" >
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">{elem.date}</p>
+    <button  onClick={() => {
+                  setStatus("accpted");
+                  console.log(elem._id,"ssds")
+                  changeStatus(elem._id);
+                }} type="button" class="btn btn-danger">Rejected</button>
+
+    <button  onClick={() => {
+                  setStatus("rejcted");
+                  changeStatus(elem._id);
+                }} type="button" class="btn btn-success">Accepted</button>
+  </div>
+</div>
+            </>
+          );
         })}
+     
     </div>
   );
-}
+};
+
+export default Schedule;

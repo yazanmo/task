@@ -3,7 +3,7 @@ const scheduleModel = require("./../../db/models/schedule");
 const appoinmentSchedule = (req, res) => {
   const { date, status, sellerId } = req.body;
 
-  const buyerId = req.token.buyerId;
+  const buyerId = req.token.id;
 
   const schedule = new scheduleModel({
     date,
@@ -24,11 +24,10 @@ const appoinmentSchedule = (req, res) => {
 
 const getAllAppoinmenet = (req, res) => {
   const sellerId = req.token.id;
-  console.log(sellerId);
   scheduleModel
     .find({ sellerId: sellerId, status: "pendding" })
+    .populate("buyerId")
     .then((result) => {
-      console.log(result);
 
       res.status(200).json(result);
     })
@@ -44,7 +43,6 @@ const changeStatus = (req, res) => {
   scheduleModel
     .findOneAndUpdate({ id: id }, { status: status })
     .then((result) => {
-      console.log(result);
       res.status(200).json(result);
     })
     .catch((err) => {

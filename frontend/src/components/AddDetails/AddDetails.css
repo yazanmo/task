@@ -6,7 +6,7 @@
   justify-content: center;
   align-items: center;
   background-color: white;
-  margin: auto;
+  margin: 20px auto auto;
 }
 .inputs {
   display: flex;

@@ -18,11 +18,8 @@ const Seller = () => {
       .get(`http://localhost:5000/seller`)
       .then((response) => {
         setAllseller(response.data);
-        console.log(response.data);
       })
       .catch((err) => {
-        console.log(err);
-        console.log("Error");
       });
   }, []);
 
@@ -30,13 +27,13 @@ const Seller = () => {
     axios
       .get(`http://localhost:5000/seller/search?fullName=${str}`)
       .then((response) => {
+        setSeller(response.data[0]._id)
         if (response.data[0]._id) {
-          console.log(response.data);
+          
         }
       })
       .catch((err) => {
-        console.log(err);
-        console.log("Error");
+        
       });
   };
 
@@ -70,11 +67,11 @@ const Seller = () => {
         </div>
       </div>
 
-      <div className="parantrestaurant">
-        {allseller &&
-          allseller.map((elem, i) => {
+      <div className="parantseller">
+        {seller &&
+          seller.map((elem, i) => {
             return (
-              <div className="childrestaurant" key={i}>
+              <div className="childseller" key={i}>
                 <p>{elem.fullName}</p>
               </div>
             );

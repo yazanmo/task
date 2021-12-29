@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams,Link, useHistory } from "react-router-dom";
+
 import axios from "axios";
 import "./sellerDetails.css";
 const SellerDetails = () => {
@@ -8,12 +9,13 @@ const SellerDetails = () => {
   const [sellerId, setSellerId] = useState("");
   const [date, setdate] = useState("");
   const { id } = useParams();
+  const history = useHistory();
+
   const token = localStorage.getItem("token");
   useEffect(() => {
     axios
       .get(`http://localhost:5000/seller/${id}`)
       .then((result) => {
-        console.log(result.data.sellerId[0].email);
         setsellerDet(result.data.sellerId[0]);
         setSellerId(result.data.sellerId[0]._id);
         setSellerData(result.data);
@@ -34,11 +36,11 @@ const SellerDetails = () => {
         }
       )
       .then((result) => {
-          console.log(result,"ddddd")
-        // history.push("/schedule");
+
+      history.push("/");
+       
       })
       .catch((err) => {
-        console.log(err,"err")
 
       });
   };
@@ -47,17 +49,16 @@ const SellerDetails = () => {
     <div className="sellerrr">
       <div className="card">
         <div className="card-body">
-          <h5 className="card-title">{sellerDet.fullName}</h5>
-          <h5 className="card-title">{sellerDet.email}</h5>
-          <p className="card-text">{sellerData.price}</p>
-          <p className="card-text">{sellerData.description}</p>
+          <h5 className="card-title">Name: {sellerDet.fullName}</h5>
+          <h5 className="card-title">Email: {sellerDet.email}</h5>
+          <p className="card-text">Price: {sellerData.price}</p>
+          <p className="card-text">description: {sellerData.description}</p>
           <a
             data-bs-toggle="modal"
             data-bs-target="#exampleModal"
-            href="#"
             className="btn btn-primary"
           >
-            Go somewhere
+           Booking
           </a>
         </div>
       </div>

@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link, useHistory } from "react-router-dom";
+import {  useHistory } from "react-router-dom";
 import "./AddDetails.css";
-import { Button } from "react-bootstrap";
 
 const AddDetails = () => {
   const history = useHistory();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
   const [price, setPrice] = useState("");
   const [dec, setDec] = useState("");
+
 
   const token = localStorage.getItem("token");
   const addDetails = () => {
@@ -32,8 +30,6 @@ const AddDetails = () => {
 
   return (
     <div className="">
-      <h1>Log in</h1>
-      <br></br>
       <div className="add-form">
         <div className="inputs">
           <input

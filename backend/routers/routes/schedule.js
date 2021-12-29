@@ -10,6 +10,6 @@ const {
 
 buyerRouter.post("/appoinment/schedule", auth, appoinmentSchedule);
 buyerRouter.get("/appoinments", auth, getAllAppoinmenet);
-buyerRouter.put("/appoinments/:id", auth, changeStatus);
+buyerRouter.put("/appoinments/:id", changeStatus);
 
 module.exports = buyerRouter;

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Med from "./../../components/Med.png";
 
 
 import "./home.css";
@@ -14,7 +15,7 @@ export default function Home() {
         <p className="intro">This site enables you to view the list of sellers, request an appointment, and search for the seller's name.</p>
       </div>
       <div className="block">
-        <img className="img-home" src="https://o.remove.bg/downloads/bfc196c5-e614-4fa2-befc-fc7fdf9d3b54/mediator-two-persons-handshaking-isolated-white-background-winner-principle-win-front-view-vector-illustration-109737572-removebg-preview.png"/>
+        <img className="img-home" src={Med}/>
       </div>
     </div>
   </main>

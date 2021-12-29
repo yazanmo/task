@@ -55,8 +55,8 @@ const Navigation = ({ setHomePageSection }) => {
             <>
               <li>
                 {" "}
-                <Link to="/signup" className="links">
-                  Sign up
+                <Link to="/login" className="links">
+                  Log in
                 </Link>{" "}
               </li>
             </>
