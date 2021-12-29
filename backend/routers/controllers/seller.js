@@ -28,11 +28,11 @@ const getSellerByName = (req, res) => {
 };
 
 const getSellerById = (req, res) => {
-  const id = req.params.id
+  const id = req.params.id;
   sellerSchema
-    .findOne( {sellerId:id} ).populate("sellerId")
+    .findOne({ sellerId: id })
+    .populate("sellerId")
     .then((result) => {
-
       res.status(200);
       res.json(result);
     })

@@ -19,22 +19,18 @@ const Seller = () => {
       .then((response) => {
         setAllseller(response.data);
       })
-      .catch((err) => {
-      });
+      .catch((err) => {});
   }, []);
 
   const searchSeller = (str) => {
     axios
       .get(`http://localhost:5000/seller/search?fullName=${str}`)
       .then((response) => {
-        setSeller(response.data[0]._id)
+        setSeller(response.data[0]._id);
         if (response.data[0]._id) {
-          
         }
       })
-      .catch((err) => {
-        
-      });
+      .catch((err) => {});
   };
 
   const pushTo = (id) => {

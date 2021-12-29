@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import {  useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import "./AddDetails.css";
 
 const AddDetails = () => {
   const history = useHistory();
   const [price, setPrice] = useState("");
   const [dec, setDec] = useState("");
-
 
   const token = localStorage.getItem("token");
   const addDetails = () => {

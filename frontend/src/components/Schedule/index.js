@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Card, Button } from "react-bootstrap";
 import axios from "axios";
-
 
 const Schedule = () => {
   const [result, setResult] = useState([]);
@@ -23,9 +21,7 @@ const Schedule = () => {
       .then((result) => {
         setResult(result.data);
       })
-      .catch((err) => {
-        console.log(err, "err");
-      });
+      .catch((err) => {});
   }, []);
 
   const changeStatus = (id) => {
@@ -36,40 +32,51 @@ const Schedule = () => {
         { status: status }
       )
       .then((result) => {
-        setStatus(result.data)
-        console.log(result.data, "ddddd");
+        setStatus(result.data);
       })
-      .catch((err) => {
-        console.log(err, "err");
-      });
+      .catch((err) => {});
   };
 
   return (
     <div className="seller">
-      
       {result &&
         result.map((elem, i) => {
           return (
             <>
-                <div class="card" >
-  <div class="card-body">
-    <p class="card-text">{elem.date}</p>
-    <button  onClick={() => {
-                  setStatus("accpted");
-                  console.log(elem._id,"ssds")
-                  changeStatus(elem._id);
-                }} type="button" class="btn btn-danger">Rejected</button>
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    Buyer Name : {elem.buyerId[0].fullName}
+                  </h5>
+                  <p class="card-text">Date: {elem.date}</p>
 
-    <button  onClick={() => {
-                  setStatus("rejcted");
-                  changeStatus(elem._id);
-                }} type="button" class="btn btn-success">Accepted</button>
-  </div>
-</div>
+                  <button
+                    onClick={() => {
+                      setStatus("accpted");
+                      console.log(elem._id, "ssds");
+                      changeStatus(elem._id);
+                    }}
+                    type="button"
+                    class="btn btn-danger"
+                  >
+                    Rejected
+                  </button>
+
+                  <button
+                    onClick={() => {
+                      setStatus("rejcted");
+                      changeStatus(elem._id);
+                    }}
+                    type="button"
+                    class="btn btn-success"
+                  >
+                    Accepted
+                  </button>
+                </div>
+              </div>
             </>
           );
         })}
-     
     </div>
   );
 };

@@ -28,7 +28,6 @@ const getAllAppoinmenet = (req, res) => {
     .find({ sellerId: sellerId, status: "pendding" })
     .populate("buyerId")
     .then((result) => {
-
       res.status(200).json(result);
     })
     .catch((err) => {
@@ -41,7 +40,7 @@ const changeStatus = (req, res) => {
   const { status } = req.body;
 
   scheduleModel
-    .findOneAndUpdate({ id: id }, { status: status })
+    .findOneAndUpdate({ _id: id }, { status: status })
     .then((result) => {
       res.status(200).json(result);
     })

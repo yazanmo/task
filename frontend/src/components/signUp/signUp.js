@@ -26,6 +26,7 @@ export default function Signup() {
       })
       .then((result) => {
         setState1(false);
+        history.push("/login");
       })
       .catch((err) => {
         setState1(true);

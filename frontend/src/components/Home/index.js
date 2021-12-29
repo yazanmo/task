@@ -1,60 +1,61 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Med from "./../../components/Med.png";
-
 
 import "./home.css";
 export default function Home() {
-  
   return (
     <div className="home">
       <main>
-    <div className="home-page">
-      <div className="block">
-        <h1>Mediator App</h1>
-        <br></br>
-        <p className="intro">This site enables you to view the list of sellers, request an appointment, and search for the seller's name.</p>
-      </div>
-      <div className="block">
-        <img className="img-home" src={Med}/>
-      </div>
-    </div>
-  </main>
-      
+        <div className="home-page">
+          <div className="block">
+            <h1>Mediator App</h1>
+            <br></br>
+            <p className="intro">
+              This site enables you to view the list of sellers, request an
+              appointment, and search for the seller's name.
+            </p>
+          </div>
+          <div className="block">
+            <img className="img-home" src={Med} />
+          </div>
+        </div>
+      </main>
 
       <div className="service-page">
-        <h2>A MODERN, FULL-SERVICE Mediator</h2> 
-       
+        <h2>A MODERN, FULL-SERVICE Mediator</h2>
       </div>
 
       <div className="container-service">
         <div className="card-service">
           <div className="card-service-partenr">
-          <img className="symbol-service3" src="https://img.icons8.com/small/50/000000/search.png"/>
+            <img
+              className="symbol-service3"
+              src="https://img.icons8.com/small/50/000000/search.png"
+            />
             <div className="serv">
               <h3>Find sellers </h3>
               <p style={{ color: "#151e27" }}>
-              You can search for sellers by name
+                You can search for sellers by name
               </p>
             </div>
           </div>
 
           <div className="card-service-partenr">
-
-          <img  className="symbol-service3"src="https://img.icons8.com/external-becris-lineal-becris/64/000000/external-booking-hotel-service-becris-lineal-becris.png"/>
+            <img
+              className="symbol-service3"
+              src="https://img.icons8.com/external-becris-lineal-becris/64/000000/external-booking-hotel-service-becris-lineal-becris.png"
+            />
 
             <div className="serv">
               <h3>Reservation</h3>
               <p style={{ color: "#151e27" }}>
-              You can book an appointment with the seller you want
+                You can book an appointment with the seller you want
               </p>
             </div>
           </div>
         </div>
-
-       
       </div>
 
-    
       {/* footer */}
       <link
         rel="stylesheet"
@@ -68,8 +69,6 @@ export default function Home() {
 
       <footer class="footer-distributed" id="contact">
         <div class="footer-left">
-        
-
           <p class="footer-company-name">Yazan &copy; 2021</p>
         </div>
 
@@ -90,7 +89,8 @@ export default function Home() {
         <div class="footer-right">
           <p class="footer-company-about">
             <span>About the website</span>
-            This site enables you to view the list of sellers, request an appointment, and search for the seller's name.
+            This site enables you to view the list of sellers, request an
+            appointment, and search for the seller's name.
           </p>
 
           <div class="footer-icons">

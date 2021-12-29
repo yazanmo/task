@@ -1,11 +1,11 @@
-  const express = require("express");
+const express = require("express");
 const auth = require("./../middlewares/authentication");
 const buyerRouter = express.Router();
 
 const {
   appoinmentSchedule,
   getAllAppoinmenet,
-  changeStatus
+  changeStatus,
 } = require("./../controllers/schedule");
 
 buyerRouter.post("/appoinment/schedule", auth, appoinmentSchedule);

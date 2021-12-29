@@ -3,14 +3,12 @@ import axios from "axios";
 import { Link, useHistory } from "react-router-dom";
 import "./login.css";
 
-
 const Login = () => {
   const history = useHistory();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [state1, setState1] = useState(false);
 
- 
   const signIn = () => {
     axios
       .post(`http://localhost:5000/login`, { email, password })
@@ -27,13 +25,11 @@ const Login = () => {
       });
   };
 
-
-
   return (
     <div id="login-box">
-      <div className='form'>
-      <h1>Log in</h1>
-      <br></br>
+      <div className="form">
+        <h1>Log in</h1>
+        <br></br>
         <input
           onChange={(e) => {
             setEmail(e.target.value);
@@ -50,7 +46,9 @@ const Login = () => {
           placeholder="Enter Password Here"
         />
         <br></br>
-			<button className="login" onClick={signIn}>login</button>
+        <button className="login" onClick={signIn}>
+          login
+        </button>
         {state1 ? (
           <div
             style={{
@@ -65,7 +63,7 @@ const Login = () => {
         ) : (
           ""
         )}
-          <p>
+        <p>
           {" "}
           Do not have an account ?
           <span>

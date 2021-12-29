@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams,Link, useHistory } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 
 import axios from "axios";
 import "./sellerDetails.css";
@@ -28,7 +28,7 @@ const SellerDetails = () => {
       .post(
         `http://localhost:5000/appoinment/schedule`,
 
-        { date: date, status:"pendding", sellerId: sellerId },
+        { date: date, status: "pendding", sellerId: sellerId },
         {
           headers: {
             authorization: "Bearer " + token,
@@ -36,13 +36,9 @@ const SellerDetails = () => {
         }
       )
       .then((result) => {
-
-      history.push("/");
-       
+        history.push("/");
       })
-      .catch((err) => {
-
-      });
+      .catch((err) => {});
   };
 
   return (
@@ -58,7 +54,7 @@ const SellerDetails = () => {
             data-bs-target="#exampleModal"
             className="btn btn-primary"
           >
-           Booking
+            Booking
           </a>
         </div>
       </div>
